@@ -1,4 +1,23 @@
 @import "tailwindcss";
+@import "maplibre-gl/dist/maplibre-gl.css";
+
+@font-face {
+  font-family: 'PolySans';
+  src: url('/fonts/PolySans-Neutral.woff2') format('woff2'),
+    url('/fonts/PolySans-Neutral.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PolySans';
+  src: url('/fonts/PolySans-Median.woff2') format('woff2'),
+    url('/fonts/PolySans-Median.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
 
 :root {
   --background: #ffffff;
