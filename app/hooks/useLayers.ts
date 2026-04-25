@@ -38,7 +38,7 @@ export function useLayers() {
                 pickable: true,
                 stroked: false,
                 filled: true,
-
+                // @ts-ignore
                 getPosition: (d: any) => [d.lon, d.lat],
 
                 getRadius: 100,
@@ -47,6 +47,7 @@ export function useLayers() {
                 radiusMaxPixels: 5,
 
                 opacity: 0.8,
+                // @ts-ignore
                 getFillColor: (d: any) => getYearLevelColor(d.year_level),
             }),
         ];
