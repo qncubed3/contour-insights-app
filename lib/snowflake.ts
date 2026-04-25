@@ -1,6 +1,7 @@
-import snowflake from "snowflake-sdk";
+import snowflake, { type Binds } from "snowflake-sdk";
 
 type SnowflakeRow = Record<string, unknown>;
+type SnowflakeBind = string | number | boolean | Date | null;
 
 function createConnection() {
     const connection = snowflake.createConnection({
@@ -31,7 +32,7 @@ function connectAsync(connection: snowflake.Connection): Promise<void> {
 function executeAsync(
     connection: snowflake.Connection,
     sqlText: string,
-    binds: unknown[] = []
+    binds?: Binds
 ): Promise<SnowflakeRow[]> {
     return new Promise((resolve, reject) => {
         connection.execute({
@@ -62,7 +63,7 @@ function destroyAsync(connection: snowflake.Connection): Promise<void> {
 
 export async function querySnowflake(
     sqlText: string,
-    binds: unknown[] = []
+    binds?: Binds
 ): Promise<SnowflakeRow[]> {
     const connection = createConnection();
 
