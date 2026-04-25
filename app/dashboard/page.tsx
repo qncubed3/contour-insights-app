@@ -29,7 +29,7 @@ export default async function DashboardPage() {
               
 
               <QuickLinkCard
-                href="/dashboard/reschedule"
+                href="/dashboard/map"
                 title="Spatiotemporal map"
                 subtitle="Interactive map of student enrolments over time"
                 colorClass="bg-[rgb(0,88,200)]"

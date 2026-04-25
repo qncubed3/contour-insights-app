@@ -7,10 +7,8 @@ export default function DashboardLayout({
 }) {
     return (
         <div className="min-h-screen bg-gray-200">
-            {/* Header */}
             <Header />
 
-            {/* Page content */}
             <main className="pt-20 px-6 py-8">
                 <div className="mx-auto w-full max-w-4xl">
                     {children}
