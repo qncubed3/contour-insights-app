@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-export type SnowflakeRow = {
+export type StudentSnowflakeRow = {
     created_at: string;
     student_id: string | number;
     lat: number;
@@ -18,32 +18,55 @@ export type SnowflakeRow = {
     grad_yr: string | number;
 };
 
+export type CampusSnowflakeRow = {
+    name: string;
+    subtitle: string;
+    lon: number;
+    lat: number;
+    address: string;
+};
+
+export type SnowflakeDataBundle = {
+    students: StudentSnowflakeRow[];
+    campuses: CampusSnowflakeRow[];
+};
+
+async function fetchData<T>(endpoint: string): Promise<T[]> {
+    const res = await fetch(endpoint);
+
+    if (!res.ok) {
+        throw new Error(`Failed to fetch ${endpoint}`);
+    }
+
+    const json = await res.json();
+
+    return json.data as T[];
+}
+
 export function useSnowflakeData() {
-    const [data, setData] = useState<SnowflakeRow[]>([]);
+    const [data, setData] = useState<SnowflakeDataBundle>({
+        students: [],
+        campuses: [],
+    });
+
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
-        async function fetchData() {
+        async function loadData() {
             try {
                 setLoading(true);
+                setError(null);
 
-                const res = await fetch("/api/snowflake");
+                const [students, campuses] = await Promise.all([
+                    fetchData<StudentSnowflakeRow>("/api/snowflake/students"),
+                    fetchData<CampusSnowflakeRow>("/api/snowflake/campuses"),
+                ]);
 
-                if (!res.ok) {
-                    throw new Error("Failed to fetch data");
-                }
-
-                const json = await res.json();
-
-                // convert lat/lon to numbers (important for deck.gl)
-                const cleaned = (json.data ?? []).map((row: any) => ({
-                    ...row,
-                    lat: Number(row.lat),
-                    lon: Number(row.lon),
-                }));
-
-                setData(cleaned);
+                setData({
+                    students,
+                    campuses,
+                });
             } catch (err) {
                 setError(
                     err instanceof Error ? err.message : "Unknown error"
@@ -53,7 +76,7 @@ export function useSnowflakeData() {
             }
         }
 
-        fetchData();
+        loadData();
     }, []);
 
     return { data, loading, error };

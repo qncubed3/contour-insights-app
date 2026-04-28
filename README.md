@@ -1,6 +1,105 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Environment Variables
+
+### Setup
+
+Copy the example file:
+
+```bash
+cp .env.example .env.local
+```
+
+---
+
+### Auth Secret
+
+Generate a secure secret:
+
+```bash
+npx auth secret
+```
+
+Paste it into:
+
+```env
+AUTH_SECRET=
+```
+
+---
+
+### Google OAuth
+
+Create OAuth credentials in Google Cloud and add this redirect URI:
+
+```
+http://localhost:3000/api/auth/callback/google
+```
+
+Then fill in:
+
+```env
+AUTH_GOOGLE_ID=
+AUTH_GOOGLE_SECRET=
+```
+
+---
+
+### Snowflake
+
+Fill in your Snowflake credentials:
+
+```env
+SNOWFLAKE_ACCOUNT=
+SNOWFLAKE_USERNAME=
+SNOWFLAKE_PASSWORD=
+SNOWFLAKE_WAREHOUSE=
+SNOWFLAKE_DATABASE=
+SNOWFLAKE_SCHEMA=
+SNOWFLAKE_ROLE=
+SNOWFLAKE_TABLE=
+```
+
+---
+
+### Optional
+
+Restrict sign-in to your organisation:
+
+```env
+ALLOWED_EMAIL_DOMAIN=
+```
+
+---
+
+### App Config
+
+```env
+NEXTAUTH_URL=http://localhost:3000
+NODE_ENV=development
+```
+
+---
+
+### Usage
+
+Access variables in server-side code:
+
+```ts
+process.env.SNOWFLAKE_ACCOUNT
+```
+
+Expose variables to the client only if necessary using the \`NEXT_PUBLIC_\` prefix.
+
+---
+
+### Notes
+
+- Do not commit .env.local
+- Set environment variables in your deployment platform for production (e.g. Vercel, Docker)
+- Keep secrets out of client-side code
+
 
 ## Getting Started
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 First, run the development server:
 
