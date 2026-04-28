@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import { ScatterplotLayer, IconLayer } from "@deck.gl/layers";
 import type { PickingInfo } from "@deck.gl/core";
+import type { Color } from "@deck.gl/core";
 import type {
     CampusSnowflakeRow,
     SnowflakeDataBundle,
@@ -19,7 +20,7 @@ type UseLayersArgs = {
     zoom: number;
 };
 
-function getYearLevelColor(yearLevel: string | number) {
+function getYearLevelColor(yearLevel: string | number): Color {
     const year = String(yearLevel).trim();
 
     switch (year) {
