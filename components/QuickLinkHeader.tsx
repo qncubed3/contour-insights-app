@@ -14,16 +14,18 @@ export default function QuickLinkHeader() {
           strokeLinejoin="round"
           aria-hidden
         >
-          <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" />
+          <line x1="12" x2="12" y1="20" y2="10" />
+          <line x1="18" x2="18" y1="20" y2="4" />
+          <line x1="6" x2="6" y1="20" y2="16" />
         </svg>
       </div>
 
       <div className="min-w-0 space-y-0.5">
         <h5 className="font-poly-sans-bulky text-[18px] font-bold leading-6">
-          Quick Links
+          Data Products
         </h5>
         <p className="font-inter text-[12px] text-muted-foreground">
-          Quick access to your essentials.
+          Explore data and insights across Contour
         </p>
       </div>
     </div>

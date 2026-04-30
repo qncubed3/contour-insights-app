@@ -11,7 +11,7 @@ export default async function DashboardPage() {
     "there";
 
   return (
-    <main className="min-h-screen bg-gray-200 px-6 py-10 text-black">
+    <main className="min-h-screen bg-gray-100 px-6 py-10 text-black">
       <div className="mx-auto w-full max-w-4xl">
         <section className="mb-8">
           <h1 className="text-2xl font-bold tracking-tight text-[rgb(35,51,92)]">
@@ -56,9 +56,9 @@ export default async function DashboardPage() {
                 }
               />
               <QuickLinkCard
-                href="#"
-                title="Book Trial"
-                subtitle="Schedule a free trial session"
+                href="/dashboard/attendance"
+                title="Attendance Insights"
+                subtitle="Explore factors affecting student attendance"
                 colorClass="bg-[rgb(255,167,55)]"
                 icon={
                   <svg
@@ -71,11 +71,18 @@ export default async function DashboardPage() {
                     strokeLinejoin="round"
                     className="h-5 w-5 text-white"
                   >
-                    <path d="M12 7v14" />
-                    <path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z" />
+                    <path d="M3 3v18h18" />
+                    <path d="M7 16l4-4 3 3 5-7" />
+                    <path d="M7 16h.01" />
+                    <path d="M11 12h.01" />
+                    <path d="M14 15h.01" />
+                    <path d="M19 8h.01" />
                   </svg>
                 }
               />
+            </div>
+            <div className="pt-6 pb-2 text-center text-gray-500 text-sm text-muted-foreground">
+              More insights coming soon
             </div>
           </div>
         </section>
