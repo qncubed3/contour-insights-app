@@ -6,6 +6,7 @@ type QuickLinkCardProps = {
   href: string;
   icon: ReactNode;
   colorClass: string;
+  newTab?: boolean;
 };
 
 export default function QuickLinkCard({
@@ -14,10 +15,13 @@ export default function QuickLinkCard({
   href,
   icon,
   colorClass,
+  newTab = false,
 }: QuickLinkCardProps) {
   return (
     <a
       href={href}
+      target={newTab ? "_blank" : undefined}
+      rel={newTab ? "noopener noreferrer" : undefined}
       className="group relative flex flex-col justify-between overflow-hidden rounded-xl transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
     >
       <div className={`absolute inset-0 ${colorClass || "bg-black"}`} />

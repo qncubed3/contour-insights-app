@@ -48,7 +48,9 @@ export function ModalityMixByBinChart({ data }: { data: Row[] }) {
     return (
         <ChartCard
             title="Average Modality Mix by Distance Bin"
-            insight="As distance increases, in-person share falls and online share rises, but absence also increases, suggesting online substitution only partially offsets distance friction."
+            insight="
+                As distance increases, in-person share falls and online share rises, but absence also increases, suggesting online substitution only partially offsets distance friction.
+            "
         >
             <Plot
                 data={[
